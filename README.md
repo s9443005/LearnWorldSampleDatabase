@@ -17,13 +17,20 @@
 1. world資料庫共有幾個表格TABLES？
 2. world資料庫有那些表格TABLES？
 3. 什麼是主鍵(PK, primary key)？
-4. country表格有那些欄位？PK為何？
-5. city表格有那些欄位？PK為何？
-6. countrylanguage表格有那些欄位？講一講。
-7. 什麼是外來鍵(FK, forieng key)？
-8. world資料庫的表格裡，那些是FK？
+4. country表格有那些欄位 Column/Field？
+5. 承上，PK為何？
+6. 承上，有那些欄位型態？
+7. city表格有那些欄位？
+8. 5. 承上，PK為何？
+9. 承上，有那些欄位型態？
+10. countrylanguage表格有那些欄位？
+11. 承上，PK為何？
+12. 承上，有那些欄位型態？
+13. 什麼是外來鍵(FK, forieng key)？
+14. world資料庫的表格裡，那些是FK？
+15. FK還可以看那些細節？
 
-### 瞭解 WORLD 資料庫的 記錄 R
+### 瞭解 WORLD 資料庫的 記錄 Record/Row
 1. 共有多少個國家？
 2. 共有多少個城市？
 3. 共有多少個語言？
