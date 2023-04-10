@@ -21,7 +21,7 @@
 5. 承上，PK為何？
 6. 承上，有那些欄位型態？
 7. city表格有那些欄位？
-8. 5. 承上，PK為何？
+8. 承上，PK為何？
 9. 承上，有那些欄位型態？
 10. countrylanguage表格有那些欄位？
 11. 承上，PK為何？
@@ -34,6 +34,8 @@
 1. 共有多少個國家？
 2. 共有多少個城市？
 3. 共有多少個語言？
+
+- - -
 
 ## SQL指令練習
 ### world.sql內容
@@ -96,4 +98,63 @@
 | Monaco                                       |        22666.6667 |
 | Macao                                        |        26277.7778 |
 +----------------------------------------------+-------------------+
+```
+- - -
+## WORLD資料庫SCHEMA
+```
+MariaDB [world]> show tables;
++-----------------+
+| Tables_in_world |
++-----------------+
+| city            |城市
+| country         |國家
+| countrylanguage |國語
++-----------------+
+3 rows in set (0.001 sec)
+MariaDB [world]> describe city;
++-------------+----------+------+-----+---------+----------------+
+| Field       | Type     | Null | Key | Default | Extra          |
++-------------+----------+------+-----+---------+----------------+
+| ID          | int(11)  | NO   | PRI | NULL    | auto_increment |識別碼
+| Name        | char(35) | NO   |     |         |                |城市名
+| CountryCode | char(3)  | NO   | MUL |         |                |國家碼
+| District    | char(20) | NO   |     |         |                |地域
+| Population  | int(11)  | NO   |     | 0       |                |人口數
++-------------+----------+------+-----+---------+----------------+
+5 rows in set (0.015 sec)
+
+MariaDB [world]> describe country;
++----------------+---------------------------------------------------------------------------------------+------+-----+---------+-------+
+| Field          | Type                                                                                  | Null | Key | Default | Extra |
++----------------+---------------------------------------------------------------------------------------+------+-----+---------+-------+
+| Code           | char(3)                                                                               | NO   | PRI |         |       |國家碼
+| Name           | char(52)                                                                              | NO   |     |         |       |國家名
+| Continent      | enum('Asia','Europe','North America','Africa','Oceania','Antarctica','South America') | NO   |     | Asia    |       |洲際
+| Region         | char(26)                                                                              | NO   |     |         |       |區域
+| SurfaceArea    | decimal(10,2)                                                                         | NO   |     | 0.00    |       |表面積
+| IndepYear      | smallint(6)                                                                           | YES  |     | NULL    |       |獨立年份
+| Population     | int(11)                                                                               | NO   |     | 0       |       |人口數
+| LifeExpectancy | decimal(3,1)                                                                          | YES  |     | NULL    |       |壽命
+| GNP            | decimal(10,2)                                                                         | YES  |     | NULL    |       |國民所得
+| GNPOld         | decimal(10,2)                                                                         | YES  |     | NULL    |       |國民所得舊
+| LocalName      | char(45)                                                                              | NO   |     |         |       |當地名稱
+| GovernmentForm | char(45)                                                                              | NO   |     |         |       |政府形式
+| HeadOfState    | char(60)                                                                              | YES  |     | NULL    |       |
+| Capital        | int(11)                                                                               | YES  |     | NULL    |       |首都
+| Code2          | char(2)                                                                               | NO   |     |         |       |國家碼2
++----------------+---------------------------------------------------------------------------------------+------+-----+---------+-------+
+15 rows in set (0.013 sec)
+
+MariaDB [world]> describe countrylanguage;
++-------------+---------------+------+-----+---------+-------+
+| Field       | Type          | Null | Key | Default | Extra |
++-------------+---------------+------+-----+---------+-------+
+| CountryCode | char(3)       | NO   | PRI |         |       |
+| Language    | char(30)      | NO   | PRI |         |       |
+| IsOfficial  | enum('T','F') | NO   |     | F       |       |
+| Percentage  | decimal(4,1)  | NO   |     | 0.0     |       |
++-------------+---------------+------+-----+---------+-------+
+4 rows in set (0.014 sec)
+
+MariaDB [world]>
 ```
